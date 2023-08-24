@@ -8,4 +8,17 @@
     text-align: center;
     margin: 20px;
   }
-  
+
+  @media (max-width: 1000px) {
+    .product-image {
+      max-width: 70%;
+    }
+    
+  }
+
+  @media (max-width: 768px) {
+    .product-image {
+      max-width: 50%;
+    }
+    
+  }

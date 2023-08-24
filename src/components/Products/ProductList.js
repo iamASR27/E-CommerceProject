@@ -58,7 +58,7 @@ const products = [
             <div className="row product-list-container">
               {products.map((product, index) => (
                 <div className="col-md-4 col-sm-6 product" key={index}>
-                  <img src={product.imageUrl} alt={product.title} />
+                  <img src={product.imageUrl} alt={product.title} className='product-image'/>
                   <h2>{product.title}</h2>
                   <p>${product.price}</p>
                   <button className="btn btn-primary" onClick={() => handleAddToCart(product)}>Add to Cart</button>

@@ -10,8 +10,8 @@ import './Header.css';
 
 const Header = () => {
     return (
-        <Navbar expand="lg" className="bg-dark">
-        <Container>
+        <Navbar className="bg-dark">
+        <Container /*className="d-lg-flex flex-lg-row"*/>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
            <HeaderNavigationLinks />
