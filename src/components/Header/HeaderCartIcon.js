@@ -1,27 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Nav from 'react-bootstrap/Nav';
 import { FaShoppingCart } from 'react-icons/fa';
-import CartModal from "../Cart/CartModal";
+import CartOffcanvas from "../Cart/CartOffcanvas";
 import './HeaderCartIcon.css';
+import CartContext from "../store/cart-context";
 
 const HeaderCartIcon = () => {
-  const [showModal, setShowModal] = useState(false);
+  const { cartItems } = useContext(CartContext);
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
 
   
-  useEffect(() => {
-    // Check if URL contains "#cart" when the component mounts
-    if (window.location.hash === "#cart") {
-      setShowModal(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Check if URL contains "#cart" when the component mounts
+  //   if (window.location.hash === "#cart") {
+  //     setShowOffcanvas(true);
+  //   }
+  // }, []);
 
   const handleCartIconClick = () => {
     // console.log('clicked')
-    setShowModal(true);
+    setShowOffcanvas(true);
   }
 
-  const handleCloseModal = () => {
-    setShowModal(false);
+  const handleCloseOffcanvas = () => {
+    setShowOffcanvas(false);
   }
 
   return (
@@ -31,9 +33,10 @@ const HeaderCartIcon = () => {
     <Nav className="ml-auto cart-size">
       <Nav.Link href="#cart" className="text-white mx-3" onClick={handleCartIconClick}>
         <FaShoppingCart />
+        <span className="cart-icon-badge">{cartItems.length}</span>
       </Nav.Link>
     </Nav>
-    <CartModal show={showModal} onHide={handleCloseModal} />
+    <CartOffcanvas show={showOffcanvas} onHide={handleCloseOffcanvas} />
      
      </>
   );

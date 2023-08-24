@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './ProductList.css';
+import CartContext from '../store/cart-context';
 
 const products = [
 
@@ -46,6 +47,12 @@ const products = [
     ]
 
     const ProductList = () => {
+        const { addToCart } = useContext(CartContext);
+
+        const handleAddToCart = product => {
+          addToCart(product);
+        }
+
         return (
           <div className="container">
             <div className="row product-list-container">
@@ -53,7 +60,8 @@ const products = [
                 <div className="col-md-4 col-sm-6 product" key={index}>
                   <img src={product.imageUrl} alt={product.title} />
                   <h2>{product.title}</h2>
-                  <p>{product.price}</p>
+                  <p>${product.price}</p>
+                  <button className="btn btn-primary" onClick={() => handleAddToCart(product)}>Add to Cart</button>
                 </div>
               ))}
             </div>
