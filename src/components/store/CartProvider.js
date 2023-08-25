@@ -8,8 +8,15 @@ const CartProvider = ({ children }) => {
     setCartItems([...cartItems, item]);
   };
 
-  const removeFromCart = (index) => {
-    const updatedCart = cartItems.filter((_, i) => i !== index);
+  const removeFromCart = (id) => {
+    const updatedCart = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedCart);
+  };
+
+  const updateQuantity = (id, newQuantity) => {
+    const updatedCart = cartItems.map((item) =>
+      item.id === id ? { ...item, quantity: newQuantity } : item
+    );
     setCartItems(updatedCart);
   };
 
@@ -17,6 +24,7 @@ const CartProvider = ({ children }) => {
     cartItems,
     addToCart,
     removeFromCart,
+    updateQuantity,
   };
 
   return (

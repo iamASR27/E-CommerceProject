@@ -1,0 +1,29 @@
+/* HomeData.css */
+.tour {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .tour h3 {
+    /* text-align: center; */
+    font-weight: bold;
+    font-size: 40px;
+    font-family: 'Rubik Wet Paint', cursive;;
+    margin-bottom: 1rem;
+  }
+  
+  .date-cell h2 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .tour-table {
+    margin: auto auto;
+    /* border-bottom: 1px solid black; */
+  }
+  /* .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    
+  } */
+  

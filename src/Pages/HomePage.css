@@ -1,0 +1,43 @@
+/* HomePage.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+    min-width: 100vw;
+    background-color: grey; /* Set the desired background color */
+  }
+  
+.home-container h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0.5rem 1rem;
+    border: 1px solid aqua; 
+    display: inline-block;
+}
+  .play-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .play-button {
+    color: aqua;
+    background-color: grey;
+    border-radius: 50%;
+    /* padding: 40px; */
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 1rem;
+    border: 1px solid aqua;
+  }
+  
+  .play-button:hover {
+    background-color: grey;
+    transform: scale(1.1);
+  }
+  

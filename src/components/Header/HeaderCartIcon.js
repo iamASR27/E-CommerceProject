@@ -26,6 +26,11 @@ const HeaderCartIcon = () => {
     setShowOffcanvas(false);
   }
 
+  const totalAmount = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   return (
     <>
     {/* {showModal && <CartModal onHide={handleCloseModal} />} */}
@@ -33,7 +38,7 @@ const HeaderCartIcon = () => {
     <Nav className="ml-auto cart-size">
       <Nav.Link href="#cart" className="text-white mx-3" onClick={handleCartIconClick}>
         <FaShoppingCart />
-        <span className="cart-icon-badge">{cartItems.length}</span>
+        <span className="cart-icon-badge">{totalAmount}</span>
       </Nav.Link>
     </Nav>
     <CartOffcanvas show={showOffcanvas} onHide={handleCloseOffcanvas} />

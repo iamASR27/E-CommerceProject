@@ -14,10 +14,11 @@ function CartOffcanvas({ show, onHide }) {
   //   setCartItems(cartElements);
   // }, []);
 
-  const handleRemoveItem = (index) => {
-    removeFromCart(index);
+  const handleRemoveItem = (id) => {
+    removeFromCart(id);
   };
 
+  
   return (
     <Offcanvas show={show} onHide={onHide} placement="end">
       <Offcanvas.Header closeButton>
@@ -35,7 +36,7 @@ function CartOffcanvas({ show, onHide }) {
           </thead>
           <tbody>
             {cartItems.map((cartItem, index) => (
-              <tr key={index}>
+              <tr key={cartItem.id}>
                 <td className="cart-item">
                   <img src={cartItem.imageUrl} alt={cartItem.title} className="cart-item-image" />
                   <h2>{cartItem.title}</h2>
@@ -43,7 +44,7 @@ function CartOffcanvas({ show, onHide }) {
                 <td>{cartItem.price}</td>
                 <td>{cartItem.quantity}</td>
                 <td>
-                  <Button variant="danger" onClick={() => handleRemoveItem(index)}>Remove</Button>
+                  <Button variant="danger" onClick={() => handleRemoveItem(cartItem.id)}>Remove</Button>
                 </td>
               </tr>
             ))}

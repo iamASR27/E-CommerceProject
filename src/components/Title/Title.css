@@ -1,14 +1,17 @@
 .title {
-    /* position: relative; */
-    background-color: grey;
-    color: azure;
-    height: 28vh;
-    font-size: 80px;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bolder;
-    margin-bottom: 1rem;
-    /* margin-top: 3rem; */
+  /* position: relative; */
+  background-color: grey;
+  color: azure;
+  height: 28vh;
+  font-size: 80px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  margin-top: -2rem
+  /* margin-top: 3rem; */
 }
+
+
 
 /* @media (max-width: 1025px) {
     .title {
