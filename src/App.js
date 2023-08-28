@@ -7,6 +7,7 @@ import HomePage from './Pages/HomePage';
 import ContactPage from './Pages/ContactPage';
 import FooterTitle from './components/Title/FooterTitle';
 import CartProvider from './components/store/CartProvider';
+import ProductPage from './Pages/ProductPage';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route path="/" exact component={StorePage} />
           <Route path="/about" component={AboutPage} />
           <Route path="/home" component={HomePage} />
-          <Route path="/contact" component={ContactPage} /> {/* Route for ContactPage */}
+          <Route path="/contact" component={ContactPage} />
+          <Route path="/product" component={ProductPage} />
         </Switch>
         <FooterTitle />
       </Router>
