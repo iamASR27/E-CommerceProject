@@ -18,6 +18,11 @@ function CartOffcanvas({ show, onHide }) {
     removeFromCart(id);
   };
 
+  const totalAmount = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
   
   return (
     <Offcanvas show={show} onHide={onHide} placement="end">
@@ -52,6 +57,7 @@ function CartOffcanvas({ show, onHide }) {
         </table>
       </Offcanvas.Body>
       <div className="btn-purchase">
+      <p className="total-amount">Total Amount: ${totalAmount.toFixed(2)}</p>
         <Button variant="success">Order</Button>
         </div>
     </Offcanvas>

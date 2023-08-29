@@ -55,7 +55,7 @@ const ContactPage = () => {
     if (showSuccessMessage) {
       const timer = setTimeout(() => {
         setShowSuccessMessage(false);
-      }, 5000); // Hide after 5 seconds
+      }, 5000); 
 
       return () => clearTimeout(timer);
     }
