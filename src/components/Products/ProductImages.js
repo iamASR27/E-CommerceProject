@@ -4,28 +4,28 @@ const productImages = [
     title: "Mixed Colours 1",
     price: 150,
     imageUrl: "images/mixed_colours_1.avif",
-    reviews: [{ id: "r1", text: "Great product!", rating: 5 }],
+    reviews: [{ id: "r5", text: "Great product!", rating: 5 }],
   },
   {
     id: "c6",
     title: "Mixed Colours 2",
     price: 50,
     imageUrl: "images/mixed_colours_2.jpeg",
-    reviews: [{ id: "r2", text: "Good quality.", rating: 4 }],
+    reviews: [{ id: "r6", text: "Good quality.", rating: 4 }],
   },
   {
     id: "c7",
     title: "Mixed Colours 3",
     price: 90,
     imageUrl: "images/mixed_colours_3.avif",
-    reviews: [{ id: "r1", text: "Great product!", rating: 5 }],
+    reviews: [{ id: "r7", text: "Great product!", rating: 5 }],
   },
   {
     id: "c8",
     title: "Mixed Colours 4",
     price: 120,
     imageUrl: "images/mixed_colours_4.jpg",
-    reviews: [{ id: "r1", text: "Great product!", rating: 5 }],
+    reviews: [{ id: "r8", text: "Great quality!", rating: 4 }],
   },
   {
     id: "c1",
@@ -35,7 +35,7 @@ const productImages = [
     price: 100,
 
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-    reviews: [{ id: "r1", text: "Great product!", rating: 5 }],
+    reviews: [{ id: "r1", text: "Great quality!", rating: 4 }],
   },
 
   {
@@ -46,7 +46,7 @@ const productImages = [
     price: 50,
 
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-    reviews: [{ id: "r1", text: "Great product!", rating: 5 }],
+    reviews: [{ id: "r2", text: "Great product!", rating: 5 }],
   },
 
   {
@@ -57,7 +57,7 @@ const productImages = [
     price: 70,
 
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-    reviews: [{ id: "r1", text: "Great product!", rating: 5 }],
+    reviews: [{ id: "r3", text:"Great quality!", rating: 4 }],
   },
 
   {
@@ -68,7 +68,7 @@ const productImages = [
     price: 100,
 
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    reviews: [{ id: "r1", text: "Great product!", rating: 5 }],
+    reviews: [{ id: "r4", text: "Great product!", rating: 5 }],
   },
 ];
 

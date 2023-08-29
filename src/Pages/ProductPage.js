@@ -8,20 +8,21 @@ import "./ProductPage.css";
 
 const ProductPage = () => {
 //   const { productId } = useParams();
-  const { addToCart } = useContext(CartContext);
+const { cartItems, addToCart, updateQuantity } = useContext(CartContext);
 
 //   const productDetails = productImages[0];
 
-  const handleAddToCart = (product) => {
-   
-      addToCart({
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        quantity: 1,
-      });
-    
-  };
+const handleAddToCart = (product) => {
+  const existingCartItem = cartItems.find(
+    (item) => item.id === product.id
+  );
+
+  if (existingCartItem) {
+    updateQuantity(existingCartItem.id, existingCartItem.quantity + 1);
+  } else {
+    addToCart({ ...product, quantity: 1 });
+  }
+};
 
  
 
