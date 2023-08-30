@@ -22,4 +22,17 @@
     font-size: x-large;
     margin: 1rem;
   }
+
+  .youtube-icon {
+    color: red;
+  }
+  
+  .spotify-icon {
+    color: rgb(18, 223, 18);
+  }
+  
+  .facebook-icon {
+    color: blue;
+  }
+  
   

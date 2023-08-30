@@ -3,7 +3,6 @@ import HeaderCartIcon from './HeaderCartIcon';
 import HeaderNavigationLinks from './HeaderNavigationLinks';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import './Header.css';
 
 
 const Header = () => {

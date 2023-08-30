@@ -1,50 +1,68 @@
-import React, { useContext } from "react";
-// import { useParams } from "react-router-dom";
+import React, { useContext, useState } from "react";
 import { Container, Button } from "react-bootstrap";
 import CartContext from "../components/store/cart-context";
 import ProductReviews from "../components/Products/ProductReviews";
 import productImages from "../components/Products/ProductImages";
+import ImageModal from "./imageModal/ImageModal";
 import "./ProductPage.css";
 
 const ProductPage = () => {
-//   const { productId } = useParams();
-const { cartItems, addToCart, updateQuantity } = useContext(CartContext);
+  const { cartItems, addToCart, updateQuantity } = useContext(CartContext);
 
-//   const productDetails = productImages[0];
+  const [modalShow, setModalShow] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
 
-const handleAddToCart = (product) => {
-  const existingCartItem = cartItems.find(
-    (item) => item.id === product.id
-  );
+  const handleImageClick = (imageUrl) => {
+    setSelectedImage(imageUrl);
+    setModalShow(true);
+  };
 
-  if (existingCartItem) {
-    updateQuantity(existingCartItem.id, existingCartItem.quantity + 1);
-  } else {
-    addToCart({ ...product, quantity: 1 });
-  }
-};
+  const handleAddToCart = (variation) => {
+    const existingCartItem = cartItems.find((item) => item.id === variation.id);
 
- 
+    if (existingCartItem) {
+      updateQuantity(existingCartItem.id, existingCartItem.quantity + 1);
+    } else {
+      addToCart({ ...variation, quantity: 1});
+    }
+  };
 
   return (
     <Container className="product-page text-center">
     {productImages.map((product) => (
-      <div key={product.id}>
+      <div key={product.title} className="product-container">
         <h2 className="product-title">{product.title}</h2>
-        <img
-          src={product.imageUrl}
-          alt={`${product.title} ${product.id}`}
-          className="product-image"
-        />
-        <p className="product-price">${product.price}</p>
-        <Button variant="primary" onClick={() => handleAddToCart(product)}>
-          Add to Cart
-        </Button>
-        <ProductReviews reviews={product.reviews} />
+        <div className="variations-section">
+          {product.variations.map((variation) => (
+            <div key={variation.id} className="variation-card">
+              <img
+                src={variation.imageUrl}
+                alt={`${product.title} ${variation.id}`}
+                className="product-image-new"
+                onClick={() => handleImageClick(variation.imageUrl)}
+              />
+              <p className="variation-title">{variation.title}</p>
+              <ProductReviews reviews={variation.reviews} />
+              <Button
+                variant="primary"
+                className="add-to-cart-button"
+                onClick={() => handleAddToCart(variation)}
+              >
+                Add to Cart
+              </Button>
+            </div>
+          ))}
+        </div>
       </div>
     ))}
+       <ImageModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        imageUrl={selectedImage}
+      />
   </Container>
-  );
+);
 };
+
 
 export default ProductPage;
