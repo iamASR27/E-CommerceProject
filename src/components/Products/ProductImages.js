@@ -15,7 +15,7 @@ const productImages = [
         id: "c11",
         title: "Colors-2",
         price: 100,
-        imageUrl: "images/colors/mixed_colours_1.avif",
+        imageUrl: "images/colors/mixed_colours_1.jpg",
         reviews: [{ id: "r11", text: "Great product!", rating: 5 }],
       },
       {
@@ -29,14 +29,14 @@ const productImages = [
         id: "c13",
         title: "Colors-4",
         price: 100,
-        imageUrl: "images/colors/mixed_colours_3.avif",
+        imageUrl: "images/colors/mixed_colours_3.jpeg",
         reviews: [{ id: "r13", text: "Great product!", rating: 5 }],
       },
       {
         id: "c14",
         title: "Colors-5",
         price: 100,
-        imageUrl: "images/colors/mixed_color_4.avif",
+        imageUrl: "images/colors/mixed_colors_4.jpeg",
         reviews: [{ id: "r14", text: "Great quality!", rating: 4 }],
       },
       {
@@ -85,7 +85,7 @@ const productImages = [
         id: "c22",
         title: "Black and white Colors-3",
         price: 50,
-        imageUrl: "images/black-white/black-white-3.avif",
+        imageUrl: "images/black-white/black-white-3.jpeg",
         reviews: [{ id: "r22", text: "Great quality!", rating: 4 }],
       },
       {
@@ -113,7 +113,7 @@ const productImages = [
         id: "c26",
         title: "Black and white Colors-7",
         price: 50,
-        imageUrl: "images/black-white/black-white-7.avif",
+        imageUrl: "images/black-white/black-white-7.png",
         reviews: [{ id: "r26", text: "Great product!", rating: 5 }],
       },
       {
@@ -148,7 +148,7 @@ const productImages = [
         id: "c32",
         title: "Yellow and Black Colors-3",
         price: 70,
-        imageUrl: "images/yellow-black/yellow-black-3.avif",
+        imageUrl: "images/yellow-black/yellow-black-3.jpeg",
         reviews: [{ id: "r32", text: "Great quality!", rating: 4 }],
       },
       {
@@ -225,7 +225,7 @@ const productImages = [
         id: "c44",
         title: "Blue Color-5",
         price: 100,
-        imageUrl: "images/blue/blue-5.avif",
+        imageUrl: "images/blue/blue-5.jpeg",
         reviews: [{ id: "r44", text: "Great product!", rating: 5 }],
       },
       {
