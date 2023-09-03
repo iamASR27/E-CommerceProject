@@ -5,10 +5,12 @@ import ProductReviews from "../components/Products/ProductReviews";
 import productImages from "../components/Products/ProductImages";
 import ImageModal from "./imageModal/ImageModal";
 import "./ProductPage.css";
+import AuthContext from "../components/store/auth-context";
 
 const ProductPage = () => {
   const { cartItems, addToCart, updateQuantity } = useContext(CartContext);
 
+  const authCtx = useContext(AuthContext);
   const [modalShow, setModalShow] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
@@ -28,7 +30,7 @@ const ProductPage = () => {
   };
 
   return (
-    <Container className="product-page text-center">
+    authCtx.isLoggedIn && (<Container className="product-page text-center">
     {productImages.map((product) => (
       <div key={product.title} className="product-container">
         <h2 className="product-title">{product.title}</h2>
@@ -60,7 +62,7 @@ const ProductPage = () => {
         onHide={() => setModalShow(false)}
         imageUrl={selectedImage}
       />
-  </Container>
+  </Container>)
 );
 };
 

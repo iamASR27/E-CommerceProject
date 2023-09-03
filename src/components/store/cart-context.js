@@ -7,4 +7,5 @@ const CartContext = React.createContext({
   updateQuantity: 0,
 });
 
+
 export default CartContext;
