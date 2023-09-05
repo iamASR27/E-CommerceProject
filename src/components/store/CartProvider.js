@@ -45,7 +45,7 @@ const CartProvider = ({ children }) => {
 
       if (authCtx.isLoggedIn) {
         const response = await fetch(
-          `https://crudcrud.com/api/0d8dec34cf4a4db690ad4968f3daf142/cart${userEmail}`,
+          `https://crudcrud.com/api/17677eea7ec14645a898b8b012b50b8b/cart${userEmail}`,
           {
             method: "POST",
             headers: {
@@ -69,7 +69,7 @@ const CartProvider = ({ children }) => {
   const fetchCartItems = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://crudcrud.com/api/0d8dec34cf4a4db690ad4968f3daf142/cart${userEmail}`
+        `https://crudcrud.com/api/17677eea7ec14645a898b8b012b50b8b/cart${userEmail}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch cart items.");
@@ -82,9 +82,15 @@ const CartProvider = ({ children }) => {
     }
   }, [userEmail]);
 
+  const clearCart = () => {
+    setCartItems([]); 
+  };
+
   useEffect(() => {
     if(authCtx.isLoggedIn) {
       fetchCartItems();
+    } else {
+      clearCart();
     }
   }, [fetchCartItems, authCtx.isLoggedIn])
   
@@ -98,7 +104,7 @@ const CartProvider = ({ children }) => {
 
     if (authCtx.isLoggedIn) {
       fetch(
-        `https://crudcrud.com/api/0d8dec34cf4a4db690ad4968f3daf142/cart${userEmail}/${_id}`,
+        `https://crudcrud.com/api/17677eea7ec14645a898b8b012b50b8b/cart${userEmail}/${_id}`,
         {
           method: "DELETE",
         }
@@ -116,8 +122,8 @@ const CartProvider = ({ children }) => {
   const cartContextValue = {
     cartItems,
     addToCart,
-    removeFromCart,
     fetchCartItems,
+    removeFromCart,
     updateQuantity,
   };
 

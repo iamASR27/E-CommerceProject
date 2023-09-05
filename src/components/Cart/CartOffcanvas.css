@@ -4,7 +4,7 @@
   
   .cart-item {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
     /* border: 1px solid black; */
@@ -12,8 +12,9 @@
   }
 
   .cart-item h2 {
-    font-size: 16px;
+    font-size: 15px;
     margin: 0px;
+    /* margin-top: 3px; */
   }
 
   .cart-item-image {
@@ -21,8 +22,10 @@
     height: 15%;
     margin-right: 10px;
     margin-left: 2px;
+    margin-top: 3px;
   }
-  
+
+ 
   .btn-purchase {
     margin: auto auto;
     /* margin-bottom: 50%; */

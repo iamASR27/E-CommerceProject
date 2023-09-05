@@ -33,14 +33,13 @@ const ProductPage = () => {
       updateQuantity(existingCartItem.id, updatedCartItem.quantity);
       try {
         await fetch(
-          `https://crudcrud.com/api/0d8dec34cf4a4db690ad4968f3daf142/cart${userEmail}/${existingCartItem._id}`,
+          `https://crudcrud.com/api/17677eea7ec14645a898b8b012b50b8b/cart${userEmail}/${existingCartItem._id}`,
           {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              // _id: existingCartItem._id,
               id: existingCartItem.id,
               title: existingCartItem.title,
               price: existingCartItem.price,

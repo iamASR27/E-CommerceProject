@@ -10,9 +10,6 @@ function CartOffcanvas({ show, onHide }) {
   //  const [cartItems, setCartItems] = useState([]);
   const { cartItems, removeFromCart } = useContext(CartContext);
 
-  // useEffect(() => {
-  //   setCartItems(cartElements);
-  // }, []);
 
   const handleRemoveItem = (id, _id) => {
     removeFromCart(id, _id);
@@ -49,7 +46,7 @@ function CartOffcanvas({ show, onHide }) {
                 <td>{cartItem.price}</td>
                 <td>{cartItem.quantity}</td>
                 <td>
-                  <Button variant="danger" onClick={() => handleRemoveItem(cartItem.id, cartItem._id)}>Remove</Button>
+                  <Button variant="danger" className="p-1" style={{fontSize: "14px"}} onClick={() => handleRemoveItem(cartItem.id, cartItem._id)}>Remove</Button>
                 </td>
               </tr>
             ))}
