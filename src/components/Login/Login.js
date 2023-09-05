@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import './Login.css';
 import AuthContext from '../store/auth-context';
+import CartContext from '../store/cart-context';
 
 
 const Login = () => {
@@ -14,10 +15,13 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const authCtx = useContext(AuthContext);
+  const cartCtx = useContext(CartContext);
 
   const switchLoginModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
+
+  
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -48,9 +52,14 @@ const Login = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        authCtx.login(data.idToken);
+        authCtx.login(data.idToken, enteredEmail);
         history.replace("/product");
         console.log(data);
+
+      
+        cartCtx.fetchCartItems();
+        
+       
       } else {
         const data = await response.json();
         let errorMessage = "Authentication Failed";

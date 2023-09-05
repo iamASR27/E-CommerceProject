@@ -14,8 +14,8 @@ function CartOffcanvas({ show, onHide }) {
   //   setCartItems(cartElements);
   // }, []);
 
-  const handleRemoveItem = (id) => {
-    removeFromCart(id);
+  const handleRemoveItem = (id, _id) => {
+    removeFromCart(id, _id);
   };
 
   const totalAmount = cartItems.reduce(
@@ -40,7 +40,7 @@ function CartOffcanvas({ show, onHide }) {
             </tr>
           </thead>
           <tbody>
-            {cartItems.map((cartItem, index) => (
+            {cartItems.map((cartItem) => (
               <tr key={cartItem.id}>
                 <td className="cart-item">
                   <img src={cartItem.imageUrl} alt={cartItem.title} className="cart-item-image" />
@@ -49,7 +49,7 @@ function CartOffcanvas({ show, onHide }) {
                 <td>{cartItem.price}</td>
                 <td>{cartItem.quantity}</td>
                 <td>
-                  <Button variant="danger" onClick={() => handleRemoveItem(cartItem.id)}>Remove</Button>
+                  <Button variant="danger" onClick={() => handleRemoveItem(cartItem.id, cartItem._id)}>Remove</Button>
                 </td>
               </tr>
             ))}

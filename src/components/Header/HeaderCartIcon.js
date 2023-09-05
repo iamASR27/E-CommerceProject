@@ -19,7 +19,7 @@ const HeaderCartIcon = () => {
   const logoutHandler = () => {
     authCtx.logout();
     history.replace("/");
-    console.log("logged out");
+    // console.log("logged out");
   };
 
   const handleCartIconClick = () => {
@@ -35,6 +35,8 @@ const HeaderCartIcon = () => {
     (total, item) => total + item.quantity,
     0
   );
+  // const totalAmount = cartItems ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0;
+
 
   return (
     <>
@@ -49,7 +51,8 @@ const HeaderCartIcon = () => {
           onClick={handleCartIconClick}
         >
           <FaShoppingCart />
-          <span className="cart-icon-badge">{totalAmount}</span>
+          {isLoggedIn && <span className="cart-icon-badge">{totalAmount}</span>}
+          {!isLoggedIn && <span className="cart-icon-badge">0</span>}
         </Nav.Link>
       </Nav>
       <CartOffcanvas show={showOffcanvas} onHide={handleCloseOffcanvas} />
