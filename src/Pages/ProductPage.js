@@ -30,16 +30,18 @@ const ProductPage = () => {
         ...existingCartItem,
         quantity: existingCartItem.quantity + 1,
       };
+
       updateQuantity(existingCartItem.id, updatedCartItem.quantity);
       try {
         await fetch(
-          `https://crudcrud.com/api/17677eea7ec14645a898b8b012b50b8b/cart${userEmail}/${existingCartItem._id}`,
+          `https://crudcrud.com/api/ee32549710d442ceacd3cbb53a92c35b/cart${userEmail}/${existingCartItem._id}`,
           {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
+              // _id: existingCartItem._id,
               id: existingCartItem.id,
               title: existingCartItem.title,
               price: existingCartItem.price,
@@ -50,7 +52,7 @@ const ProductPage = () => {
                 rating: review.rating,
               })),
               quantity: updatedCartItem.quantity,
-            }),
+            })
           }
         );
       } catch (error) {

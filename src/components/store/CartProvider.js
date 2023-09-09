@@ -6,46 +6,15 @@ const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const authCtx = useContext(AuthContext);
-
-  // const userEmail = authCtx.userEmail.replace(/[@.]/g, "");
   const userEmail = authCtx.userEmail ? authCtx.userEmail.replace(/[@.]/g, "") : "";
-
-
-  //   const addToCart = (item) => {
-  //     setCartItems([...cartItems, item]);
-
-  //     if(authCtx.isLoggedIn){
-  //       fetch(`https://crudcrud.com/api/1bccbc030bff43c785d914091ca47b31/cart${userEmail}`, {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(item),
-  //     }
-  //       )
-  //   }
-  // };
 
   const addToCart = async (item) => {
     try {
       setCartItems([...cartItems, item]);
-    // try {
-    //   const existingCartItemIndex = cartItems.findIndex(
-    //     (cartItem) => cartItem._id === item._id
-    //   );
-  
-    //   if (existingCartItemIndex !== -1) {
-    //     const updatedCart = [...cartItems];
-    //     updatedCart[existingCartItemIndex].quantity++;
-    //     setCartItems(updatedCart);
-    //   } else {
-    //     setCartItems([...cartItems, { ...item, quantity: 1 }]);
-    //   }
-  
 
       if (authCtx.isLoggedIn) {
         const response = await fetch(
-          `https://crudcrud.com/api/17677eea7ec14645a898b8b012b50b8b/cart${userEmail}`,
+          `https://crudcrud.com/api/ee32549710d442ceacd3cbb53a92c35b/cart${userEmail}`,
           {
             method: "POST",
             headers: {
@@ -60,7 +29,7 @@ const CartProvider = ({ children }) => {
         }
       }
 
-      // await fetchCartItems();
+      
     } catch (error) {
       console.error("Error adding item to cart:", error);
     }
@@ -69,7 +38,7 @@ const CartProvider = ({ children }) => {
   const fetchCartItems = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://crudcrud.com/api/17677eea7ec14645a898b8b012b50b8b/cart${userEmail}`
+        `https://crudcrud.com/api/ee32549710d442ceacd3cbb53a92c35b/cart${userEmail}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch cart items.");
@@ -98,13 +67,13 @@ const CartProvider = ({ children }) => {
 
 
 
-  const removeFromCart = (id, _id) => {
+  const removeFromCart = (id, item) => {
     const updatedCart = cartItems.filter((item) => item.id !== id);
     setCartItems(updatedCart);
 
     if (authCtx.isLoggedIn) {
       fetch(
-        `https://crudcrud.com/api/17677eea7ec14645a898b8b012b50b8b/cart${userEmail}/${_id}`,
+        `https://crudcrud.com/api/ee32549710d442ceacd3cbb53a92c35b/cart${userEmail}/${item._id}`,
         {
           method: "DELETE",
         }

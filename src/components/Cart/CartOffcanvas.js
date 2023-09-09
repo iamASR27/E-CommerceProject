@@ -1,18 +1,15 @@
 import React, { useContext } from "react";
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-// import cartElements from "./CartItems";
 import './CartOffcanvas.css';
 import CartContext from "../store/cart-context";
 
 function CartOffcanvas({ show, onHide }) {
-  // const [cartItems, setCartItems] = useState(cartElements);
-  //  const [cartItems, setCartItems] = useState([]);
   const { cartItems, removeFromCart } = useContext(CartContext);
 
 
-  const handleRemoveItem = (id, _id) => {
-    removeFromCart(id, _id);
+  const handleRemoveItem = (id, cartItem) => {
+    removeFromCart(id, cartItem);
   };
 
   const totalAmount = cartItems.reduce(
@@ -46,7 +43,7 @@ function CartOffcanvas({ show, onHide }) {
                 <td>{cartItem.price}</td>
                 <td>{cartItem.quantity}</td>
                 <td>
-                  <Button variant="danger" className="p-1" style={{fontSize: "14px"}} onClick={() => handleRemoveItem(cartItem.id, cartItem._id)}>Remove</Button>
+                  <Button variant="danger" className="p-1" style={{fontSize: "14px"}} onClick={() => handleRemoveItem(cartItem.id, cartItem)}>Remove</Button>
                 </td>
               </tr>
             ))}
